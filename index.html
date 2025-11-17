@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { Upload, FileText, Download, Loader2, ArrowRight, Trash2 } from 'lucide-react';
 
-//const API_URL = ' https://pdftool-8rhl.onrender.com  /api'; 
-// Replace with your actual Render URL
-//      https://pdftool.onrender.com
 const API_URL = 'https://pdftool-8rhl.onrender.com/api';
-// No spaces before or after the URL!
 
 const AdvancedFileConverter = () => {
   const [activeTab, setActiveTab] = useState('convert');
@@ -51,7 +47,7 @@ const AdvancedFileConverter = () => {
 
   const tabs = [
     { id: 'convert', name: 'Convert', icon: '🔄' },
-    { id: 'merge', name: 'Merge', icon: '📑' },
+    { id: 'merge', name: 'Merge', icon: '🔗' },
     { id: 'split', name: 'Split', icon: '✂️' },
     { id: 'compress', name: 'Compress', icon: '📦' },
     { id: 'security', name: 'Security', icon: '🔒' },
@@ -174,10 +170,9 @@ const AdvancedFileConverter = () => {
 
   const handleDownload = () => {
     if (result && result.downloadUrl) {
-      // Change API_URL to your actual backend URL
       const downloadLink = result.downloadUrl.startsWith('http') 
         ? result.downloadUrl 
-        : `http://localhost:5000${result.downloadUrl}`;
+        : `https://pdftool-8rhl.onrender.com${result.downloadUrl}`;
       
       window.open(downloadLink, '_blank');
     }
@@ -581,13 +576,12 @@ const AdvancedFileConverter = () => {
         </div>
 
         <div className="mt-6 text-center text-sm text-purple-200">
-          <p>✅ Fully Functional - Backend Required</p>
+          <p>✅ Fully Functional - Powered by Render</p>
+          <p className="mt-2 text-xs">🌐 Your Public URL: https://pdftool-8rhl.onrender.com</p>
         </div>
       </div>
     </div>
   );
 };
 
-
 export default AdvancedFileConverter;
-
